@@ -15,12 +15,38 @@ require("lazy").setup({
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { "nvim-neo-tree/neo-tree.nvim",
     	branch = "v3.x",
-	dependencies = {
-	    "nvim-lua/plenary.nvim",
-	    "nvim-tree/nvim-web-devicons",
-	    "MunifTanjim/nui.nvim"
-	}
-    }
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim"
+		}
+    },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		lazy = false,
+		config = function ()
+			local configs = require("nvim-treesitter.configs")
+
+			configs.setup({
+				ensure_installed = {
+					"c",
+					"cpp",
+					"go",
+					"html",
+					"java",
+					"javascript",
+					"lua",
+					"python",
+					"rust",
+					"vim",
+				},
+				sync_install = false,
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+		end
+	},
 })
 
 vim.cmd.colorscheme "catppuccin-mocha"
@@ -32,12 +58,7 @@ vim.g.mapleader = ","
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.number = true
+vim.opt.cursorline = true
 
 -- shortcuts
---vim.keymap.set('n', '<C-s>', '<cmd>w<cr>')
---vim.keymap.set('n', '<C-w>', '<cmd>q<cr>')
-
-vim.keymap.set('n', '<C-Up>', '<cmd>wincmd k<cr>')
-vim.keymap.set('n', '<C-Left>', '<cmd>wincmd h<cr>')
-vim.keymap.set('n', '<C-Down>', '<cmd>wincmd j<cr>')
-vim.keymap.set('n', '<C-Right>', '<cmd>wincmd l<cr>')
+require("keymaps")
