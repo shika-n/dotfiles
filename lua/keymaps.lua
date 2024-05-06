@@ -22,12 +22,20 @@ vim.keymap.set('i', '(', '()<Left>')
 vim.keymap.set('i', '{', '{}<Left>')
 vim.keymap.set('i', '[', '[]<Left>')
 
-vim.keymap.set('i', '<C-k>',
-	function()
-		local file_type = vim.bo.filetype
+local comments_leadings = {
+	["lua"] = "--",
+	["c"] = "//",
+	["cpp"] = "//",
+	["java"] = "//",
+	["html"] = "<!--",
+}
 
-		if file_type == "lua" then
-			vim.cmd("norm ^i-- ")
-		end
+vim.keymap.set('n', '<C-_>',
+	function()
+		local comments_lead = comments_leadings[vim.bo.filetype]
+		local current_line = string.gsub(vim.api.nvim_get_current_line(), "%s+", "")
+
+
+		print(i .. " " .. length)
 	end
 )
