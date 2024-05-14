@@ -32,6 +32,7 @@ require("lazy").setup({
 				ensure_installed = {
 					"c",
 					"cpp",
+					"css",
 					"go",
 					"html",
 					"java",
@@ -47,20 +48,32 @@ require("lazy").setup({
 			})
 		end
 	},
+	{
+		"hrsh7th/nvim-cmp",
+		event = { "InsertEnter", "CmdlineEnter" },
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline"
+		},
+		config = function ()
+			local cmp = require("cmp")
+
+			cmp.setup({
+				mapping = cmp.mapping.preset.insert({
+					['<C-Space>'] = cmp.mapping.complete(),
+					['<CR>'] = cmp.mapping.confirm({ select = true }),
+				}),
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+				}, {
+					{ name = "buffer" }
+				})
+			})
+		end
+	}
 })
 
-vim.cmd.colorscheme "catppuccin-mocha"
-
--- let
-vim.g.mapleader = ","
-
--- set
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.number = true
-vim.opt.cursorline = true
-vim.opt.list = true
-vim.opt.listchars:append({ tab = "| " })
-
--- shortcuts
-require("keymaps")
+require("configs")

@@ -4,8 +4,8 @@ vim.keymap.set('i', '<C-w>', '<cmd>q<cr>')
 vim.keymap.set('i', '<C-z>', '<cmd>norm u<cr>')
 vim.keymap.set('i', '<C-y>', '<cmd>norm <C-r><cr>')
 
-vim.keymap.set('i', '<A-S-Down>', '<cmd>norm yyp<cr>')
-vim.keymap.set('i', '<A-S-Up>', '<cmd>norm yyP<cr>')
+vim.keymap.set('i', '<A-J>', '<cmd>norm yyp<cr>')
+vim.keymap.set('i', '<A-K>', '<cmd>norm yyP<cr>')
 vim.keymap.set('i', '<A-Down>', '<cmd>norm <S-v>xp<cr>')
 vim.keymap.set('i', '<A-Up>', '<cmd>norm <S-v>xkkp<cr>')
 
@@ -22,6 +22,8 @@ vim.keymap.set('i', '(', '()<Left>')
 vim.keymap.set('i', '{', '{}<Left>')
 vim.keymap.set('i', '[', '[]<Left>')
 
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+
 local comments_leadings = {
 	["lua"] = "--",
 	["c"] = "//",
@@ -37,5 +39,11 @@ vim.keymap.set('n', '<C-_>',
 
 
 		print(i .. " " .. length)
+	end
+)
+
+vim.keymap.set('n', '<F5>',
+	function()
+		print(vim.api.nvim_buf_get_name(0))
 	end
 )
