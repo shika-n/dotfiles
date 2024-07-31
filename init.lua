@@ -44,7 +44,10 @@ require("lazy").setup({
 				},
 				sync_install = false,
 				highlight = { enable = true },
-				indent = { enable = true },
+				indent = {
+					enable = true,
+					disable = { "html" },
+				},
 			})
 		end
 	},
@@ -73,7 +76,10 @@ require("lazy").setup({
 				})
 			})
 		end
-	}
+	},
+	{ "mfussenegger/nvim-jdtls" }
 })
+
+require('lspconfig').tsserver.setup{}
 
 require("configs")
