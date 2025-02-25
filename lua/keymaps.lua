@@ -15,6 +15,7 @@ vim.keymap.set('n', '<C-Down>', '<cmd>wincmd j<cr>')
 vim.keymap.set('n', '<C-Right>', '<cmd>wincmd l<cr>')
 
 vim.keymap.set('n', '/', '<cmd>Neotree reveal_force_cwd<cr>')
+vim.keymap.set('n', '\\', '<cmd>Neotree toggle<cr>')
 
 vim.keymap.set('i', '\'', '\'\'<Left>')
 vim.keymap.set('i', '\"', '\"\"<Left>')

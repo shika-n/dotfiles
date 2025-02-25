@@ -59,6 +59,7 @@ require("lazy").setup({
 					"java",
 					"javascript",
 					"lua",
+					"php",
 					"python",
 					"rust",
 					"vim",
@@ -117,12 +118,14 @@ require("lazy").setup({
 require("lualine").setup()
 require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets"})
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip").filetype_extend("php", { "html" })
 require("mason").setup()
 require("mason-lspconfig").setup {
 	ensure_installed = {
 		"cssls",
 		"gopls",
 		"html",
+		"intelephense",
 		"jdtls",
 		"jsonls",
 		"lua_ls",
@@ -133,6 +136,7 @@ require("mason-lspconfig").setup {
 require("configs")
 
 require('lspconfig').jdtls.setup{}
+require'lspconfig'.intelephense.setup{}
 
 
 local ls = require("luasnip")
