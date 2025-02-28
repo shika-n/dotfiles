@@ -1,6 +1,5 @@
 vim.g.mapleader = ","
 
-
 index = string.find(vim.env.MYVIMRC, "/[^(/)]*$")
 win_index = string.find(vim.env.MYVIMRC, "(\\)[^(\\)]*$")
 

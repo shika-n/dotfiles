@@ -1,3 +1,5 @@
+local telescope = require("telescope.builtin")
+
 vim.keymap.set('i', '<C-s>', '<cmd>w<cr>')
 vim.keymap.set('i', '<C-w>', '<cmd>q<cr>')
 
@@ -25,7 +27,10 @@ vim.keymap.set('i', '[', '[]<Left>')
 
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
-
+vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
 -- local ls = require("luasnip")
 -- 
 -- vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
