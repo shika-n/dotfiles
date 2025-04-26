@@ -29,7 +29,13 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim"
-		}
+		},
+		opts = {
+			window = {
+				position = "left",
+				width = 25,
+			},
+		},
 	},
 	{
 		'nvim-lualine/lualine.nvim',
@@ -57,6 +63,7 @@ require("lazy").setup({
 					"cpp",
 					"css",
 					"go",
+					"graphql",
 					"html",
 					"java",
 					"javascript",
@@ -64,6 +71,9 @@ require("lazy").setup({
 					"php",
 					"python",
 					"rust",
+					"sql",
+					"svelte",
+					"typescript",
 					"vim",
 				},
 				sync_install = false,
@@ -127,6 +137,7 @@ require("lualine").setup()
 require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets"})
 require("luasnip.loaders.from_vscode").lazy_load()
 require("luasnip").filetype_extend("php", { "html" })
+require("luasnip").filetype_extend("svelte", { "html" })
 require("mason").setup()
 require("mason-lspconfig").setup {
 	ensure_installed = {
@@ -137,6 +148,7 @@ require("mason-lspconfig").setup {
 		"jdtls",
 		"jsonls",
 		"lua_ls",
+		"svelte",
 		"tsserver",
 	}
 }
