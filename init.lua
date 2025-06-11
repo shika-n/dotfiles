@@ -149,7 +149,7 @@ require("mason-lspconfig").setup {
 		"jsonls",
 		"lua_ls",
 		"svelte",
-		"tsserver",
+		"ts_ls",
 	}
 }
 

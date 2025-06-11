@@ -6,3 +6,5 @@ vim.opt.list = true
 vim.opt.listchars:append({ tab = "│ " })
 -- vim.opt.wrap = false
 
+vim.opt.shellcmdflag = "-c"
+vim.opt.shellquote = "\""
