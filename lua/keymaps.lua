@@ -34,6 +34,8 @@ vim.keymap.set('n', '<leader>ff', telescope.find_files, { desc = 'Telescope find
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help tags' })
+
+vim.keymap.set('n', '<leader>dw', function() vim.diagnostic.open_float() end)
 -- local ls = require("luasnip")
 -- 
 -- vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
@@ -52,21 +54,3 @@ vim.keymap.set('n', '<leader>fh', telescope.help_tags, { desc = 'Telescope help 
 -- 		vim.api.nvim_feedkeys(")", false)
 -- 	end
 -- )
-
-local comments_leadings = {
-	["lua"] = "--",
-	["c"] = "//",
-	["cpp"] = "//",
-	["java"] = "//",
-	["html"] = "<!--",
-}
-
-vim.keymap.set('n', '<C-_>',
-	function()
-		local comments_lead = comments_leadings[vim.bo.filetype]
-		local current_line = string.gsub(vim.api.nvim_get_current_line(), "%s+", "")
-
-
-		print(i .. " " .. length)
-	end
-)
