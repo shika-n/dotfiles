@@ -1,3 +1,0 @@
-require("snippets.shorthands")
-
-

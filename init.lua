@@ -131,6 +131,7 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim"
 		}
 	},
+	{ "lewis6991/gitsigns.nvim" },
 })
 
 require("lualine").setup()
