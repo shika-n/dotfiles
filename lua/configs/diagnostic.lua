@@ -9,3 +9,6 @@ vim.diagnostic.config({
 		border = "rounded",
 	}
 })
+vim.keymap.set('n', '<leader>ve', function()
+		vim.diagnostic.open_float()
+end)
