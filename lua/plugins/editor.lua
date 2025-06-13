@@ -41,7 +41,8 @@ return {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline"
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		config = function ()
 			local cmp = require("cmp")
@@ -59,7 +60,8 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" }
+					{ name = "luasnip" },
+					{ name = "nvim_lsp_signature_help" },
 				}, {
 					{ name = "buffer" }
 				}),
@@ -94,7 +96,16 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
-			"nvim-lua/plenary.nvim"
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make"
+			},
 		},
+		config = function(_, opts)
+			local configs = require("telescope")
+			configs.setup(opts)
+			configs.load_extension("fzf")
+		end
 	},
 }
