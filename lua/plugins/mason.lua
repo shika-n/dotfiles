@@ -10,15 +10,16 @@ return {
 		},
 		opts = {
 			ensure_installed = {
-				"cssls",
-				"gopls",
-				"html",
-				"intelephense",
-				"jdtls",
-				"jsonls",
-				"lua_ls",
-				"svelte",
-				"ts_ls",
+				"clangd", -- C++
+				"cssls", -- CSS
+				"gopls", -- Go
+				"html", -- HTML
+				"intelephense", -- PHP
+				"jdtls", -- Java
+				"jsonls", -- JSON
+				"lua_ls", -- Lua
+				"svelte", -- Svelte
+				"ts_ls", -- Javascript/Typescript
 			},
 		},
 	},
