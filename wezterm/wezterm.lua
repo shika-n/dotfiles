@@ -7,7 +7,7 @@ config.initial_rows = 32
 
 config.hide_tab_bar_if_only_one_tab = true
 -- config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.7
 
 -- config.color_scheme = "Ayu Dark (Gogh)"
 

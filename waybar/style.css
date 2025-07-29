@@ -50,7 +50,7 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #a37800;
+    background-color: rgba(10, 14, 25, 0.6);
 }
 
 #workspaces button {
@@ -102,8 +102,8 @@ button:hover {
 #workspaces {
     margin: 0 4px;
 	padding: 0px 8px;
-    background-color: rgba(43, 48, 59, 0.5);
-	border-radius: 16px;
+	background-color: rgba(10, 14, 25, 0.5);
+	border-radius: 8px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -116,19 +116,25 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
-    background-color: #64727D;
+#battery,
+#clock,
+#cpu,
+#disk,
+#memory,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#wireplumber
+{
+	background-color: rgba(10, 14, 25, 0.5);
+	color: white;
+	border-radius: 8px;
 }
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
+/*
+* #battery.charging, #battery.plugged {
+*/
 
 @keyframes blink {
     to {
@@ -171,44 +177,17 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
 #backlight {
     background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
 }
 
 #network.disconnected {
     background-color: #f53c3c;
 }
 
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
 }
 
 #wireplumber.muted {
@@ -229,16 +208,8 @@ label:focus {
     background-color: #ffa000;
 }
 
-#temperature {
-    background-color: #f0932b;
-}
-
 #temperature.critical {
     background-color: #eb4d4b;
-}
-
-#tray {
-    background-color: #2980b9;
 }
 
 #tray > .passive {

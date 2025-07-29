@@ -18,31 +18,32 @@
         // "idle_inhibitor",
         "pulseaudio",
         // "network",
-        "power-profiles-daemon",
+        // "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
         // "backlight",
         // "sway/language",
         "battery",
-        "clock",
-        "tray"
+        "tray",
+        "clock"
     ],
     // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name}: {icon}",
+        "format": "&gt;{name}{icon}&lt;",
+        // "format": "{name}: {icon}",
         "format-icons": {
-            "1": "󰖟",
-            "2": "",
-            "3": "󰭹",
-            "4": "",
-            "5": "",
+            // "1": "󰖟",
+            // "2": "",
+            // "3": "󰭹",
+            // "4": "",
+            // "5": "",
             "urgent": "",
             "focused": "",
-            "default": ""
+            "default": ""// ""
         }
     },
     "keyboard-state": {
@@ -106,8 +107,10 @@
         // }
     },
     "clock": {
+		"interval": 1,
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "{:%Y-%m-%d %H:%M:%S}",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
