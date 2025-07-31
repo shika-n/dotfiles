@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 
 base_folder="$HOME/Pictures/wallpapers/originals"
-folders=("base" "extra" "extra_plus")
+folders=('base' 'extra' 'extra_plus')
 
-current_wallpaper=$(swww query | grep eDP-1 | cut -d " " -f 5)
+current_wallpaper=$(swww query | grep eDP-1 | cut -d ' ' -f 8)
 
-$ignore_args="-name _scaled -prune -o"
+ignore_args='-name *_scaled* -prune -o'
+
+file_arg=$(cat $(dirname $0)/wallpaper_type 2>/dev/null)
 
 using_folder="$base_folder/${folders[0]}"
-if [[ $# -gt 0 ]] then
-	if [[ $1 == '-e' ]] then
-		using_folder="$base_folder/${folders[1]}"
-	elif [[ $1 == '-r' ]]; then
-		using_folder="$base_folder/${folders[2]}"
-	fi
+
+if [[ $file_arg == 'e' || $1 == '-e' ]] then
+	using_folder="$base_folder/${folders[1]}"
+elif [[ $file_arg == 'r' || $1 == '-r' ]]; then
+	using_folder="$base_folder/${folders[2]}"
 fi
 
 wallpaper=$(find $using_folder $ignore_args -type f ! -name $(basename $current_wallpaper) -print | shuf -n 1)
