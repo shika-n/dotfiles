@@ -11,6 +11,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"clangd", -- C++
+				"cmake", -- CMake
 				"cssls", -- CSS
 				"gopls", -- Go
 				"html", -- HTML
