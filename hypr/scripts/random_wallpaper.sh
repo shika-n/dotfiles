@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+dirpath=$(dirname $0)
 base_folder="$HOME/Pictures/wallpapers/originals"
+cache_folder="$HOME/Pictures/wallpapers/cache"
 folders=('base' 'extra' 'extra_plus')
 
 current_wallpaper=$(swww query | grep eDP-1 | cut -d ' ' -f 8)
 
-ignore_args='-name *_scaled* -prune -o'
+ignore_args='-name *.conf -prune -o -name *_scaled* -prune -o'
 
 file_arg=$(cat $(dirname $0)/wallpaper_type 2>/dev/null)
 
@@ -24,5 +26,8 @@ if [[ -f $scaled ]] then
 	wallpaper=$scaled
 fi
 
-swww img $wallpaper --transition-type center --transition-duration 2
+wallpaper=$(${dirpath}/transform_wallpaper.sh "${wallpaper}" "$cache_folder")
 
+swww img "${wallpaper}" --transition-type center --transition-duration 2
+
+echo $wallpaper
