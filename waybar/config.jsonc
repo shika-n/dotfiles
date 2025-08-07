@@ -5,6 +5,7 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
+	"margin": "8 8 0 8",
     // Choose the order of the modules
     "modules-left": [
         "hyprland/window"
@@ -19,6 +20,7 @@
         "pulseaudio",
         // "network",
         // "power-profiles-daemon",
+		// "group/hw_usage",
         "cpu",
         "memory",
         "temperature",
@@ -113,6 +115,16 @@
 		"format": "{:%Y-%m-%d %H:%M:%S}",
         "format-alt": "{:%Y-%m-%d}"
     },
+	"group/hw_usage": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500
+		},
+		"modules": [
+			"cpu",
+			"memory"
+		]
+	},
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
