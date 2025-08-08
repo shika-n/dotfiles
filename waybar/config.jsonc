@@ -31,6 +31,10 @@
         "clock"
     ],
     // Modules configuration
+	"hyprland/window": {
+		"icon": true,
+		"icon-size": 16
+	},
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
