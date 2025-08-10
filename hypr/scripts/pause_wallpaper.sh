@@ -3,7 +3,10 @@
 dirpath=$(dirname $0)
 
 if [[ ! -f "${dirpath}/wallpaper_paused" ]] then
-	touch "${dirpath}/wallpaper_paused" && notify-send 'Wallpaper paused!' -t 3000
+	touch "${dirpath}/wallpaper_paused" && \
+		notify-send 'Wallpaper paused!' -t 3000
 else
-	rm "${dirpath}/wallpaper_paused" && notify-send "Wallpaper unpaused! ($(cat ${dirpath}/wallpaper_change_interval))" -t 3000
+	interval=$(cat ${dirpath}/wallpaper_change_interval)
+	rm "${dirpath}/wallpaper_paused" && \
+		notify-send "Wallpaper unpaused! (${interval})" -t 3000
 fi

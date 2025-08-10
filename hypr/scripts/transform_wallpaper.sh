@@ -46,9 +46,21 @@ fi
 
 # Transform
 if [[ $transform_type == 'fit' ]] then
-	magick ${filepath} -gravity "${gravity}" -crop "16:9+${x_offset}+${y_offset}" -gaussian-blur 0x8 -resize "1920x1080" \( ${filepath} -resize "1920x1080" \) -composite -resize "1920x1080!" +repage "${outdir}/${target_file_name}"
+	magick ${filepath} \
+		-gravity "${gravity}" \
+		-crop "16:9+${x_offset}+${y_offset}" \
+		-gaussian-blur 0x8 \
+		-resize "1920x1080" \
+		\( ${filepath} -resize "1920x1080" \) \
+		-composite -resize "1920x1080!" \
+		+repage "${outdir}/${target_file_name}"
 else
-	magick "${filepath}" -rotate "${rotate}" -gravity "${gravity}" -crop "16:9+${x_offset}+${y_offset}" -resize "1920x1080!" +repage "${outdir}/${target_file_name}"
+	magick "${filepath}" \
+		-rotate "${rotate}" \
+		-gravity "${gravity}" \
+		-crop "16:9+${x_offset}+${y_offset}" \
+		-resize "1920x1080!" \
+		+repage "${outdir}/${target_file_name}"
 fi
 
 echo "${outdir}/${target_file_name}"
