@@ -4,7 +4,8 @@
 }
 
 #window {
-	background-color: #0c0502;
+	/* #0a0e19, opacity < 1.0 to fix flicker */
+	background-color: rgba(10, 14, 25, 0.99999);
 	border: 2px solid #f7ff99;
 	padding: 4px;
 	border-radius: 8px;
@@ -23,7 +24,7 @@
 }
 
 #input:focus {
-	background-color: #3f2b12;
+	background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid #f7ff99;
 }
 
@@ -33,7 +34,8 @@
 }
 
 #entry:selected {
-	background-color: #2d3f1f;
+	/* f7ff99 */
+	background-color: rgba(247, 255, 153, 0.3);
 	border-radius: 4px;
 	outline: none;
 }
