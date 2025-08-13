@@ -14,7 +14,8 @@ config.window_background_opacity = 0.7
 -- config.font_dirs = { "fonts" }
 -- config.font = wezterm.font("SauceCodePro Nerd Font Mono")
 -- config.font = wezterm.font("SpaceMono Nerd Font")
-config.font = wezterm.font("DepartureMono Nerd Font Mono")
+-- config.font = wezterm.font("DepartureMono Nerd Font Mono")
+config.font = wezterm.font("0xProto Nerd Font")
 
 config.colors = {
 	background = "#0a0e19",
