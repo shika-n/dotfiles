@@ -19,6 +19,8 @@ return {
 				"jdtls", -- Java
 				"jsonls", -- JSON
 				"lua_ls", -- Lua
+				"pylsp", -- Python
+				"rust_analyzer", -- Rust
 				"svelte", -- Svelte
 				"ts_ls", -- Javascript/Typescript
 			},

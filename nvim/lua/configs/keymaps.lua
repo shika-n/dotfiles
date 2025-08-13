@@ -1,23 +1,10 @@
-
-vim.keymap.set('i', "<C-s>", "<cmd>w<cr>")
-vim.keymap.set('i', "<C-w>", "<cmd>q<cr>")
-
-vim.keymap.set('i', "<C-z>", "<cmd>norm u<cr>")
-vim.keymap.set('i', "<C-y>", "<cmd>norm <C-r><cr>")
-
-vim.keymap.set('i', "<A-J>", "<cmd>norm yyp<cr>")
-vim.keymap.set('i', "<A-K>", "<cmd>norm yyP<cr>")
-vim.keymap.set('i', "<A-Down>", "<cmd>norm <S-v>xp<cr>")
-vim.keymap.set('i', "<A-Up>", "<cmd>norm <S-v>xkkp<cr>")
-
+-- Move between splits
 vim.keymap.set('n', "<C-Up>", "<cmd>wincmd k<cr>")
 vim.keymap.set('n', "<C-Left>", "<cmd>wincmd h<cr>")
 vim.keymap.set('n', "<C-Down>", "<cmd>wincmd j<cr>")
 vim.keymap.set('n', "<C-Right>", "<cmd>wincmd l<cr>")
 
-vim.keymap.set('n', "/", "<cmd>Neotree reveal_force_cwd<cr>")
-vim.keymap.set('n', "\\", "<cmd>Neotree toggle<cr>")
-
+-- Quotes & brackets
 vim.keymap.set('i', "\'<Tab>", "\'\'<Left>")
 vim.keymap.set('i', "\"<Tab>", "\"\"<Left>")
 vim.keymap.set('i', "(<Tab>", "()<Left>")
@@ -27,8 +14,29 @@ vim.keymap.set('i', "(<Cr>", "(<Cr>)<Esc>O")
 vim.keymap.set('i', "{<Cr>", "{<Cr>}<Esc>O")
 vim.keymap.set('i', "[<Cr>", "[<Cr>]<Esc>O")
 
+-- Terminal
 vim.keymap.set('t', "<Esc>", "<C-\\><C-n>")
 
+-- LSP check
+vim.keymap.set('n', "<leader>h", function()
+	local filetype = vim.bo.filetype
+	local language = vim.treesitter.language.get_lang(filetype)
+	local highlight_started = false
+	if vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] then
+		highlight_started = true
+	end
+
+	print(
+		"Type: ", filetype,
+		", Language: ", language,
+		", Highlight: ", highlight_started
+	)
+end)
+
+-- Neotree
+vim.keymap.set('n', "\\", "<cmd>Neotree toggle reveal<cr>")
+
+-- Telescope
 local telescope = require("telescope.builtin")
 vim.keymap.set('n', "<leader>ff", telescope.find_files, {
 	desc = "Telescope find files"
