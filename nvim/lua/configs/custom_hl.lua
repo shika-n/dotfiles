@@ -20,7 +20,7 @@ override_hl("LineNr", {
 override_hl("ColorColumn", {
 	bg = "none",
 	ctermbg = "none",
-	underline = true,
+	underdotted = true,
 })
 
 override_hl("NormalFloat", {
