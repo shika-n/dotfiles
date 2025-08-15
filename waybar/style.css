@@ -63,6 +63,8 @@ button:hover {
     padding: 0 5px;
     background-color: transparent;
     color: #ffffff;
+	min-width: 16px;
+	transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -72,6 +74,7 @@ button:hover {
 #workspaces button.active {
     background-color: #64727D;
     box-shadow: inset 0 -3px #f7ff99;
+	min-width: 32px;
 }
 
 #workspaces button.urgent {
