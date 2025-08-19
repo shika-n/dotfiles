@@ -32,7 +32,9 @@ return {
 					"typescriptreact",
 					table.unpack(ensure_installed),
 				},
-				callback = function() vim.treesitter.start() end,
+				callback = function()
+					vim.treesitter.start()
+				end,
 			})
 		end
 	},

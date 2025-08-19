@@ -32,4 +32,10 @@ return {
 		config = true,
 	},
 	{ "lewis6991/gitsigns.nvim" },
+	{
+		"sphamba/smear-cursor.nvim",
+		opts = {
+			cursor_color = "#f7ff99",
+		},
+	},
 }
