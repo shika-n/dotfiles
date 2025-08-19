@@ -22,6 +22,7 @@ return {
 				"pylsp", -- Python
 				"rust_analyzer", -- Rust
 				"svelte", -- Svelte
+				"tailwindcss", -- Tailwind CSS
 				"ts_ls", -- Javascript/Typescript
 			},
 		},
