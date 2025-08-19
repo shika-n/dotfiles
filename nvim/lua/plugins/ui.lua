@@ -38,4 +38,16 @@ return {
 			cursor_color = "#f7ff99",
 		},
 	},
+	{
+		"chentoast/marks.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
+	{
+		"jinh0/eyeliner.nvim",
+		opts = {
+			highlight_on_key = true,
+			dim = true,
+		}
+	},
 }
