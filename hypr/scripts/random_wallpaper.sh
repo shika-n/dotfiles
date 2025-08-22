@@ -2,7 +2,7 @@
 
 dirpath=$(dirname $0)
 base_folder="$HOME/Pictures/wallpapers/originals"
-cache_folder="$HOME/Pictures/wallpapers/cache"
+cache_folder="$HOME/Pictures/wallpapers/.cache"
 folders=('base' 'extra' 'extra_plus')
 
 current_wallpaper=$(swww query | grep eDP-1 | cut -d ' ' -f 8)

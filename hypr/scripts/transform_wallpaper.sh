@@ -1,41 +1,29 @@
 #!/usr/bin/env bash
 
+dirpath=$(dirname $0)
 filepath=$1
 outdir=$2
-basename=$(basename $1)
+basename=$(basename ${filepath})
 offsets_config="$(dirname ${filepath})/offsets.conf"
 
 if [[ -z $filepath || -z $basename ]] then
-	echo "No file given" >&2
+	echo 'No file given' >&2
 	exit
 fi
 if [[ -z $outdir ]] then
-	echo "No output directory given" >&2
+	echo 'No output directory given' >&2
 	exit
 fi
 
-# filename fit
-# filename crop x_offset y_offset gravity rotate
-
-transform_type='crop'
-x_offset=0
-y_offset=0
-rotate=0
-gravity='Center'
-
+# filename fit  x_offset y_offset aspect_ratio gravity
+# filename crop x_offset y_offset rotate       gravity
 if [[ -f $offsets_config ]] then
-	config=$(cat "${offsets_config}" | grep $basename)
+	config=$(cat "${offsets_config}" | grep $basename | tail -n 1)
 	if [[ ! -z $config ]] then
 		transform_type=$(cut -d ' ' -f 2 <<< ${config})
-
-		if [[ $transform_type == 'crop' ]] then
-			x_offset=$(cut -d ' ' -f 3 <<< ${config})
-			y_offset=$(cut -d ' ' -f 4 <<< ${config})
-			rotate=$(cut -d ' ' -f 5 <<< ${config})
-			gravity=$(cut -d ' ' -f 6 <<< ${config})
-		fi
 	fi
 fi
+transform_type=${transform_type:-'crop'}
 
 # Check cache
 target_file_name="${basename}"
@@ -46,21 +34,49 @@ fi
 
 # Transform
 if [[ $transform_type == 'fit' ]] then
+	x_offset=$(cut -d ' ' -f 3 <<< ${config})
+	x_offset=${x_offset:-0}
+	y_offset=$(cut -d ' ' -f 4 <<< ${config})
+	y_offset=${y_offset:-0}
+	aspect_ratio=$(cut -d ' ' -f 5 <<< ${config})
+	aspect_ratio=${aspect_ratio:-'1:1'}
+	gravity=$(cut -d ' ' -f 6 <<< ${config})
+	gravity=${gravity:-'North'}
+
 	magick ${filepath} \
-		-gravity "${gravity}" \
-		-crop "16:9+${x_offset}+${y_offset}" \
-		-gaussian-blur 0x8 \
-		-resize "1920x1080" \
-		\( ${filepath} -resize "1920x1080" \) \
-		-composite -resize "1920x1080!" \
+		-gravity 'Center' \
+		-crop '16:9' \
+		-gaussian-blur '0x8' \
+		-resize '1920x1080' \
+		\( \
+			${filepath} \
+			-gravity "${gravity}" \
+			-crop "${aspect_ratio}+${x_offset}+${y_offset}" \
+			-resize '1920x1080' \
+		\) \
+		-composite -resize '1920x1080!' \
 		+repage "${outdir}/${target_file_name}"
-else
+elif [[ $transform_type == 'crop' ]] then
+	x_offset=$(cut -d ' ' -f 3 <<< ${config})
+	x_offset=${x_offset:-0}
+	y_offset=$(cut -d ' ' -f 4 <<< ${config})
+	y_offset=${y_offset:-0}
+	rotate=$(cut -d ' ' -f 5 <<< ${config})
+	rotate=${rotate:-0}
+	gravity=$(cut -d ' ' -f 6 <<< ${config})
+	gravity=${gravity:-'Center'}
+
 	magick "${filepath}" \
 		-rotate "${rotate}" \
 		-gravity "${gravity}" \
 		-crop "16:9+${x_offset}+${y_offset}" \
-		-resize "1920x1080!" \
+		-resize '1920x1080!' \
 		+repage "${outdir}/${target_file_name}"
+else
+	notify-send "Wallpaper - Unknown transform type" "${filepath}"
+	echo "Unknwon transform type of ${transform_type} for ${filepath}" >> \
+		"${dirpath}/wp-error.log"
+	exit
 fi
 
 echo "${outdir}/${target_file_name}"
