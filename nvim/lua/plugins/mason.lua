@@ -10,6 +10,7 @@ return {
 		},
 		opts = {
 			ensure_installed = {
+				"bashls", -- Bash
 				"clangd", -- C++
 				"cmake", -- CMake
 				"cssls", -- CSS

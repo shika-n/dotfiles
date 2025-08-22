@@ -8,6 +8,7 @@ return {
 			local ts = require("nvim-treesitter")
 			ts.setup(opts)
 			local ensure_installed = {
+				"bash",
 				"c",
 				"cmake",
 				"cpp",
@@ -29,6 +30,7 @@ return {
 			ts.install(ensure_installed)
 			vim.api.nvim_create_autocmd('FileType', {
 				pattern = {
+					"sh",
 					"typescriptreact",
 					table.unpack(ensure_installed),
 				},
