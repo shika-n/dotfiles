@@ -32,7 +32,7 @@ return {
 				pattern = {
 					"sh",
 					"typescriptreact",
-					table.unpack(ensure_installed),
+					unpack(ensure_installed),
 				},
 				callback = function()
 					vim.treesitter.start()
