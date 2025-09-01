@@ -29,6 +29,8 @@ fi
 
 wallpaper=$(${dirpath}/transform_wallpaper.sh "${wallpaper}" "$cache_folder")
 
+ln -sf "${wallpaper}" "${cache_folder}/current"
+
 swww img "${wallpaper}" --transition-type center --transition-duration 2
 
 echo $wallpaper
