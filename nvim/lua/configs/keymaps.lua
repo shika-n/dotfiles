@@ -50,3 +50,6 @@ vim.keymap.set('n', "<leader>fb", telescope.buffers, {
 vim.keymap.set('n', "<leader>fh", telescope.help_tags, {
 	desc = "Telescope help tags"
 })
+vim.keymap.set('n', "<leader>fr", telescope.resume, {
+	desc = "Telescope last search"
+})
