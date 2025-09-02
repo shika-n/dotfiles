@@ -3,6 +3,7 @@
 dirpath=$(dirname $0)
 filepath=$1
 outdir=$2
+force=${3:-false}
 basename=$(basename ${filepath})
 offsets_config="$(dirname ${filepath})/offsets.conf"
 
@@ -27,7 +28,7 @@ transform_type=${transform_type:-'crop'}
 
 # Check cache
 target_file_name="${basename}"
-if [[ -f "${outdir}/${target_file_name}" ]] then
+if [[ -f "${outdir}/${target_file_name}" && ${force} == false ]] then
 	echo "${outdir}/${target_file_name}"
 	exit
 fi
