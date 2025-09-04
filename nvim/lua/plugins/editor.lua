@@ -103,18 +103,20 @@ return {
 		end
 	},
 	{
-		"nvim-telescope/telescope.nvim",
+		"kdheepak/lazygit.nvim",
+		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make"
-			},
 		},
-		config = function(_, opts)
-			local configs = require("telescope")
-			configs.setup(opts)
-			configs.load_extension("fzf")
-		end
-	},
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		keys = {
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
+	}
 }

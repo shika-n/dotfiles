@@ -10,4 +10,4 @@ vim.opt.list = true
 vim.opt.listchars:append({ tab = "│ " })
 
 vim.opt.colorcolumn = "80"
-vim.opt.winwidth = 80
+vim.opt.winwidth = 90

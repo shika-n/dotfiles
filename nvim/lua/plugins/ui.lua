@@ -12,36 +12,15 @@ return {
 		end
 	},
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim"
-		},
-		opts = {
-			window = {
-				position = "left",
-				width = 25,
-			},
-		},
-	},
-	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
 	},
-	{ "lewis6991/gitsigns.nvim" },
 	{
 		"sphamba/smear-cursor.nvim",
 		opts = {
 			cursor_color = "#f7ff99",
 		},
-	},
-	{
-		"chentoast/marks.nvim",
-		event = "VeryLazy",
-		opts = {},
 	},
 	{
 		"jinh0/eyeliner.nvim",
