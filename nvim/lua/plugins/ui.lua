@@ -13,17 +13,20 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
 	},
 	{
 		"sphamba/smear-cursor.nvim",
+		event = "VeryLazy",
 		opts = {
 			cursor_color = "#f7ff99",
 		},
 	},
 	{
 		"jinh0/eyeliner.nvim",
+		event = "BufRead",
 		opts = {
 			highlight_on_key = true,
 			dim = true,
@@ -31,7 +34,7 @@ return {
 	},
 	{
 		"eero-lehtinen/oklch-color-picker.nvim",
-		event = "VeryLazy",
+		event = "LspAttach",
 		version = "*",
 		opts = {},
 		keys = {

@@ -28,6 +28,9 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 	},
-	checker = { enabled = true }
+	checker = { enabled = true },
+	ui = {
+		border = "double",
+	}
 })
 

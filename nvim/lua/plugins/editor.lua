@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		lazy = false,
+		event = "LspAttach",
 		branch = "main",
 		config = function (_, opts)
 			local ts = require("nvim-treesitter")
@@ -42,7 +42,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
-		-- event = { "InsertEnter", "CmdlineEnter" },
+		event = "LspAttach",
 		dependencies = {
 			"neovim/nvim-lspconfig",
 			"hrsh7th/cmp-nvim-lsp",
@@ -86,7 +86,7 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
-		lazy = false,
+		event = "LspAttach",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"saadparwaiz1/cmp_luasnip",

@@ -1,10 +1,12 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		event = "BufNew",
 		config = true,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = "BufNew",
 		dependencies = {
 			"neovim/nvim-lspconfig"
 		},
