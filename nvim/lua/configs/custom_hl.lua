@@ -36,3 +36,11 @@ override_hl("FloatTitle", {
 	ctermbg = "none",
 })
 
+override_hl("GitSignsCurrentLineBlame", {
+	fg = "#858fac",
+	italic = true,
+})
+
+override_hl("NeoTreeFileStats", {
+	fg = "#858fac",
+})

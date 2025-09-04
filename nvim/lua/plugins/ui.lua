@@ -27,6 +27,20 @@ return {
 		opts = {
 			highlight_on_key = true,
 			dim = true,
-		}
+		},
+	},
+	{
+		"eero-lehtinen/oklch-color-picker.nvim",
+		event = "VeryLazy",
+		version = "*",
+		opts = {},
+		keys = {
+			{
+				"<leader>v",
+				function()
+					require("oklch-color-picker").pick_under_cursor()
+				end
+			},
+		},
 	},
 }
