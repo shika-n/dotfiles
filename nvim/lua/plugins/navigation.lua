@@ -68,9 +68,9 @@ return {
 		},
 		cmd = { "Gitsigns" },
 		keys = {
-			{ "]c", "<cmd>gitsigns next_hunk<cr>" },
-			{ "[c", "<cmd>gitsigns prev_hunk<cr>" },
-			{ "<C-w>t", "<cmd>gitsigns preview_hunk<cr>" },
+			{ "]c", "<cmd>Gitsigns next_hunk<cr>" },
+			{ "[c", "<cmd>Gitsigns prev_hunk<cr>" },
+			{ "<C-w>t", "<cmd>Gitsigns preview_hunk<cr>" },
 		}
 	},
 	{

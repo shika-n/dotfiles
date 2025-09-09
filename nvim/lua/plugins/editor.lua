@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		event = "LspAttach",
+		event = "BufReadPre",
 		branch = "main",
 		config = function (_, opts)
 			local ts = require("nvim-treesitter")
