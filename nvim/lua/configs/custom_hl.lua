@@ -17,11 +17,11 @@ override_hl("LineNr", {
 	fg = "#a3aecc",
 })
 
-override_hl("ColorColumn", {
-	bg = "none",
-	ctermbg = "none",
-	underdotted = true,
-})
+-- override_hl("ColorColumn", {
+--	bg = "none",
+--	ctermbg = "none",
+--	underdotted = true,
+-- })
 
 override_hl("NormalFloat", {
 	bg = "none",

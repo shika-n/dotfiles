@@ -7,17 +7,20 @@ config.initial_rows = 32
 
 config.hide_tab_bar_if_only_one_tab = true
 -- config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.7
+config.window_background_opacity = 1.0
 
 -- config.color_scheme = "Ayu Dark (Gogh)"
+-- config.color_scheme = "Ibm3270 (Gogh)"
+config.color_scheme = "Gruvbox Dark (Gogh)"
 
--- config.font_dirs = { "fonts" }
--- config.font = wezterm.font("SauceCodePro Nerd Font Mono")
+config.font_dirs = { "fonts" }
+-- config.font = wezterm.font("SauceCodePro Nerd Font")
 -- config.font = wezterm.font("SpaceMono Nerd Font")
--- config.font = wezterm.font("DepartureMono Nerd Font Mono")
-config.font = wezterm.font("0xProto Nerd Font")
+-- config.font = wezterm.font("DepartureMono Nerd Font")
+-- config.font = wezterm.font("0xProto Nerd Font")
+config.font = wezterm.font("BigBlueTermPlus Nerd Font")
 
-config.colors = {
+--[[ config.colors = {
 	background = "#0a0e19",
 	foreground = "#a3aecc",
 	cursor_bg = "#f7ff99",
@@ -41,6 +44,14 @@ config.colors = {
 		"#9f99ff",
 		"#ff99f8",
 		"#ffffff",
+	},
+} --]]
+
+config.keys = {
+	{
+		key = 'n',
+		mods = 'SHIFT|CTRL',
+		action = wezterm.action.ToggleFullScreen,
 	},
 }
 
