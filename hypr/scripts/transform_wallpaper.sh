@@ -57,6 +57,29 @@ if [[ $transform_type == 'fit' ]] then
 		\) \
 		-composite -resize '1920x1080!' \
 		+repage "${outdir}/${target_file_name}"
+# Preferred when not cropping
+elif [[ $transform_type == 'fit2' ]] then
+	x_offset=$(cut -d ' ' -f 3 <<< ${config})
+	x_offset=${x_offset:-0}
+	y_offset=$(cut -d ' ' -f 4 <<< ${config})
+	y_offset=${y_offset:-0}
+	aspect_ratio=$(cut -d ' ' -f 5 <<< ${config})
+	aspect_ratio=${aspect_ratio:-'1:1'}
+	gravity=$(cut -d ' ' -f 6 <<< ${config})
+	gravity=${gravity:-'North'}
+
+	magick ${filepath} \
+		-gravity 'Center' \
+		-crop '16:9' \
+		-gaussian-blur '0x8' \
+		-resize '1920x1080' \
+		\( \
+			${filepath} \
+			-gravity "${gravity}" \
+			-resize '1920x1080' \
+		\) \
+		-composite -resize '1920x1080!' \
+		+repage "${outdir}/${target_file_name}"
 elif [[ $transform_type == 'crop' ]] then
 	x_offset=$(cut -d ' ' -f 3 <<< ${config})
 	x_offset=${x_offset:-0}
