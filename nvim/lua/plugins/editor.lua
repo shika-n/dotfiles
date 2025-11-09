@@ -41,6 +41,10 @@ return {
 		end
 	},
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "LspAttach",
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		event = "LspAttach",
 		dependencies = {
@@ -61,6 +65,8 @@ return {
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
+					["<C-b>"] = cmp.mapping.scroll_docs(-4),
+					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -77,7 +83,7 @@ return {
 						border = "rounded",
 					},
 					documentation = {
-						border = nil,
+						border = "single",
 					}
 				},
 			})
@@ -118,5 +124,24 @@ return {
 		keys = {
 			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 		},
-	}
+	},
+	{
+		"stevearc/conform.nvim",
+		event = "BufRead",
+		opts = {
+			formatters_by_ft = {
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+			},
+			default_format_opts = {
+				lsp_format = "fallback",
+			},
+			format_on_save = {
+				lsp_format = "fallback",
+				timeout_ms = 500,
+			},
+			notify_on_error = true,
+			notify_no_formatter = true,
+		},
+	},
 }

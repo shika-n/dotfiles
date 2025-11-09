@@ -1,7 +1,7 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		event = "BufNew",
+		cmd = { "Mason" },
 		config = true,
 	},
 	{

@@ -44,3 +44,7 @@ override_hl("GitSignsCurrentLineBlame", {
 override_hl("NeoTreeFileStats", {
 	fg = "#858fac",
 })
+
+override_hl("TreesitterContext", {
+	bg = "#424857",
+})
