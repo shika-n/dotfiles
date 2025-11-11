@@ -13,6 +13,10 @@ return {
 				position = "float",
 				width = 25,
 			},
+			mappings = {
+				["<C-x>"] = "open_split",
+				["<C-v>"] = "open_vsplit",
+			},
 		},
 		keys = {
 			{ "\\", "<cmd>Neotree toggle reveal<cr>" },
@@ -68,8 +72,8 @@ return {
 		},
 		cmd = { "Gitsigns" },
 		keys = {
-			{ "]c", "<cmd>Gitsigns next_hunk<cr>" },
-			{ "[c", "<cmd>Gitsigns prev_hunk<cr>" },
+			{ "]c",     "<cmd>Gitsigns next_hunk<cr>" },
+			{ "[c",     "<cmd>Gitsigns prev_hunk<cr>" },
 			{ "<C-w>t", "<cmd>Gitsigns preview_hunk<cr>" },
 		}
 	},
