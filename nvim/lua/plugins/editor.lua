@@ -22,6 +22,7 @@ return {
 				"php",
 				"python",
 				"rust",
+				"slang",
 				"sql",
 				"svelte",
 				"tsx",
@@ -31,6 +32,7 @@ return {
 			vim.api.nvim_create_autocmd('FileType', {
 				pattern = {
 					"sh",
+					"shaderslang",
 					"typescriptreact",
 					unpack(ensure_installed),
 				},

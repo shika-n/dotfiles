@@ -24,6 +24,7 @@ return {
 				"lua_ls", -- Lua
 				"pylsp", -- Python
 				"rust_analyzer", -- Rust
+				"slangd", -- Slang
 				"svelte", -- Svelte
 				"tailwindcss", -- Tailwind CSS
 				"ts_ls", -- Javascript/Typescript
