@@ -4,7 +4,7 @@ return {
 		build = ":TSUpdate",
 		event = "BufReadPre",
 		branch = "main",
-		config = function (_, opts)
+		config = function(_, opts)
 			local ts = require("nvim-treesitter")
 			ts.setup(opts)
 			local ensure_installed = {
@@ -55,7 +55,7 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
-		config = function ()
+		config = function()
 			local cmp = require("cmp")
 
 			cmp.setup({
@@ -132,6 +132,10 @@ return {
 			formatters_by_ft = {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				javascript = { "prettierd", "prettier" },
+				javascriptreact = { "prettierd", "prettier" },
+				typescript = { "prettierd", "prettier" },
+				typescriptreact = { "prettierd", "prettier" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
