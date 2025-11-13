@@ -29,7 +29,7 @@ return {
 				"typescript",
 			}
 			ts.install(ensure_installed)
-			vim.api.nvim_create_autocmd('FileType', {
+			vim.api.nvim_create_autocmd("FileType", {
 				pattern = {
 					"sh",
 					"shaderslang",
@@ -40,7 +40,7 @@ return {
 					vim.treesitter.start()
 				end,
 			})
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
@@ -78,7 +78,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "nvim_lsp_signature_help" },
 				}, {
-					{ name = "buffer" }
+					{ name = "buffer" },
 				}),
 				window = {
 					completion = {
@@ -86,10 +86,10 @@ return {
 					},
 					documentation = {
 						border = "single",
-					}
+					},
 				},
 			})
-		end
+		end,
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -101,14 +101,14 @@ return {
 		},
 		config = function()
 			require("luasnip.loaders.from_lua").load({
-				paths = vim.fn.stdpath("config") .. "/snippets"
+				paths = vim.fn.stdpath("config") .. "/snippets",
 			})
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			local config = require("luasnip")
 			config.filetype_extend("php", { "html" })
 			config.filetype_extend("svelte", { "html" })
-		end
+		end,
 	},
 	{
 		"kdheepak/lazygit.nvim",
@@ -136,6 +136,7 @@ return {
 				cpp = { "clang-format" },
 				javascript = { "prettierd", "prettier" },
 				javascriptreact = { "prettierd", "prettier" },
+				lua = { "stylua" },
 				typescript = { "prettierd", "prettier" },
 				typescriptreact = { "prettierd", "prettier" },
 			},
