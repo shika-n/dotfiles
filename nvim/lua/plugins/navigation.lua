@@ -6,7 +6,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim"
+			"MunifTanjim/nui.nvim",
 		},
 		opts = {
 			window = {
@@ -29,7 +29,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make"
+				build = "make",
 			},
 		},
 		opts = {
@@ -55,7 +55,7 @@ return {
 			{ "<leader>fc", "<cmd>Telescope git_status<cr>" },
 			{
 				"<leader>fw",
-				"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>"
+				"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			},
 			{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>" },
 			{ "<leader>fd", "<cmd>Telescope diagnostics<cr>" },
@@ -63,7 +63,7 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "BufNew",
+		event = "BufRead",
 		opts = {
 			current_line_blame = true,
 			preview_config = {
@@ -72,26 +72,21 @@ return {
 		},
 		cmd = { "Gitsigns" },
 		keys = {
-			{ "]c",     "<cmd>Gitsigns next_hunk<cr>" },
-			{ "[c",     "<cmd>Gitsigns prev_hunk<cr>" },
+			{ "]c", "<cmd>Gitsigns next_hunk<cr>" },
+			{ "[c", "<cmd>Gitsigns prev_hunk<cr>" },
 			{ "<C-w>t", "<cmd>Gitsigns preview_hunk<cr>" },
-		}
-	},
-	{
-		"chentoast/marks.nvim",
-		event = "BufRead",
-		opts = {},
+		},
 	},
 	{
 		"mikavilpas/yazi.nvim",
 		version = "*",
 		lazy = true,
 		dependencies = {
-			{ "nvim-lua/plenary.nvim", lazy = true }
+			{ "nvim-lua/plenary.nvim", lazy = true },
 		},
 		cmd = { "Yazi" },
 		keys = {
-			{ "<C-w>y", "<cmd>Yazi<cr>" }
+			{ "<C-w>y", "<cmd>Yazi<cr>" },
 		},
-	}
+	},
 }

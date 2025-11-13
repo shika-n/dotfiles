@@ -6,9 +6,9 @@ return {
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
-		event = "BufNew",
+		event = "BufReadPre",
 		dependencies = {
-			"neovim/nvim-lspconfig"
+			"neovim/nvim-lspconfig",
 		},
 		opts = {
 			ensure_installed = {
