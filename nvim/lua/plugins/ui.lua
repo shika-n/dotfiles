@@ -1,5 +1,5 @@
 return {
---[[	{
+	--[[	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
@@ -17,10 +17,10 @@ return {
 		opts = {
 			transparent_mode = true,
 		},
-		config = function (_, opts)
+		config = function(_, opts)
 			require("gruvbox").setup(opts)
 			vim.cmd.colorscheme("gruvbox")
-		end
+		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
@@ -37,7 +37,7 @@ return {
 	},
 	{
 		"jinh0/eyeliner.nvim",
-		event = "BufRead",
+		event = "VeryLazy",
 		opts = {
 			highlight_on_key = true,
 			dim = true,
@@ -53,8 +53,12 @@ return {
 				"<leader>v",
 				function()
 					require("oklch-color-picker").pick_under_cursor()
-				end
+				end,
 			},
 		},
+	},
+	{
+		"saghen/blink.indent",
+		event = "VeryLazy",
 	},
 }
