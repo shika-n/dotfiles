@@ -14,11 +14,12 @@ config.window_background_opacity = 1.0
 config.color_scheme = "Gruvbox Dark (Gogh)"
 
 config.font_dirs = { "fonts" }
+config.font_size = 11
 -- config.font = wezterm.font("SauceCodePro Nerd Font")
 -- config.font = wezterm.font("SpaceMono Nerd Font")
 -- config.font = wezterm.font("DepartureMono Nerd Font")
--- config.font = wezterm.font("0xProto Nerd Font")
-config.font = wezterm.font("BigBlueTermPlus Nerd Font")
+config.font = wezterm.font("0xProto Nerd Font")
+-- config.font = wezterm.font("BigBlueTermPlus Nerd Font")
 
 --[[ config.colors = {
 	background = "#0a0e19",
@@ -49,8 +50,8 @@ config.font = wezterm.font("BigBlueTermPlus Nerd Font")
 
 config.keys = {
 	{
-		key = 'n',
-		mods = 'SHIFT|CTRL',
+		key = "n",
+		mods = "SHIFT|CTRL",
 		action = wezterm.action.ToggleFullScreen,
 	},
 }
