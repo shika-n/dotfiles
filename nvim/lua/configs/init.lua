@@ -4,6 +4,6 @@ require("configs.keymaps")
 require("configs.opts")
 require("configs.custom_hl")
 
-vim.lsp.config('*', {
+vim.lsp.config("*", {
 	root_markers = { ".git" },
 })

@@ -7,5 +7,5 @@ vim.diagnostic.config({
 		title = "Diagnostics",
 		header = {},
 		border = "rounded",
-	}
+	},
 })
