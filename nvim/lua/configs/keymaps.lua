@@ -3,6 +3,17 @@ vim.keymap.set("n", "<C-Up>", "<cmd>wincmd k<cr>")
 vim.keymap.set("n", "<C-Left>", "<cmd>wincmd h<cr>")
 vim.keymap.set("n", "<C-Down>", "<cmd>wincmd j<cr>")
 vim.keymap.set("n", "<C-Right>", "<cmd>wincmd l<cr>")
+vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<cr>")
+vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<cr>")
+vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<cr>")
+vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<cr>")
+
+-- New tab
+vim.keymap.set("n", "<A-t>", "<cmd>tabnew<cr>")
+
+-- Move between tabs
+vim.keymap.set("n", "<A-h>", "gT")
+vim.keymap.set("n", "<A-l>", "gt")
 
 -- Quotes & brackets
 vim.keymap.set("i", "'<Tab>", "''<Left>")
