@@ -137,15 +137,17 @@ return {
 				javascript = { "prettierd", "prettier" },
 				javascriptreact = { "prettierd", "prettier" },
 				lua = { "stylua" },
+				svelte = { "prettierd", "prettier" },
 				typescript = { "prettierd", "prettier" },
 				typescriptreact = { "prettierd", "prettier" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
+				stop_after_first = true,
 			},
 			format_on_save = {
 				lsp_format = "fallback",
-				timeout_ms = 500,
+				timeout_ms = 1000,
 			},
 			notify_on_error = true,
 			notify_no_formatter = true,
