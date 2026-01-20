@@ -11,3 +11,6 @@ vim.opt.listchars:append({ tab = "│ " })
 
 vim.opt.colorcolumn = { 80, 100 }
 vim.opt.winwidth = 106
+
+vim.opt.splitright = true
+vim.opt.splitbelow = true
