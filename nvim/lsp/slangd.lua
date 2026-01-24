@@ -1,4 +1,4 @@
-if vim.fn.has("win32") then
+if vim.fn.has("win32") == 1 then
 	-- slangd uses CreateProcess which doesn't use PATHEXT to run mason's .cmd
 	-- files. Giving the full path to mason's slang .cmd file also doesn't work
 	-- since if clangFormatLocation contains path separator, slang will check if
