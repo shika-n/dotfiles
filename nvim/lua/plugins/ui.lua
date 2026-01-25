@@ -27,6 +27,22 @@ return {
 		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
+		opts = {
+			options = {
+				globalstatus = true,
+			},
+			sections = {
+				lualine_c = {
+					{ "filename", path = 4 },
+				},
+				lualine_x = { "lsp_status", "encoding", "fileformat", "filetype" },
+			},
+			inactive_winbar = {
+				lualine_c = {
+					{ "filename", path = 4 },
+				},
+			},
+		},
 	},
 	{
 		"sphamba/smear-cursor.nvim",
