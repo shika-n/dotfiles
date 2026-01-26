@@ -26,16 +26,19 @@ return {
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = true,
 		opts = {
 			options = {
 				globalstatus = true,
 			},
 			sections = {
-				lualine_c = {
+				lualine_b = { "branch", "diff" },
+				lualine_c = { "diagnostics" },
+				lualine_x = { "lsp_status", "encoding", "fileformat", "filetype" },
+			},
+			winbar = {
+				lualine_b = {
 					{ "filename", path = 4 },
 				},
-				lualine_x = { "lsp_status", "encoding", "fileformat", "filetype" },
 			},
 			inactive_winbar = {
 				lualine_c = {
