@@ -4,3 +4,5 @@ vim.lsp.config("clangd", {
 		"--query-driver=C:\\mingw64\\bin\\c++.exe",
 	},
 })
+
+return {}
