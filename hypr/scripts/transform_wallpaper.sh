@@ -16,8 +16,9 @@ if [[ -z $outdir ]] then
 	exit
 fi
 
-# filename fit  x_offset y_offset aspect_ratio gravity
 # filename crop x_offset y_offset rotate       gravity
+# filename fit  x_offset y_offset aspect_ratio gravity
+# filename fit2 x_offset y_offset aspect_ratio gravity
 if [[ -f $offsets_config ]] then
 	config=$(cat "${offsets_config}" | grep $basename | tail -n 1)
 	if [[ ! -z $config ]] then
@@ -34,7 +35,23 @@ if [[ -f "${outdir}/${target_file_name}" && ${force} == false ]] then
 fi
 
 # Transform
-if [[ $transform_type == 'fit' ]] then
+if [[ $transform_type == 'crop' ]] then
+	x_offset=$(cut -d ' ' -f 3 <<< ${config})
+	x_offset=${x_offset:-0}
+	y_offset=$(cut -d ' ' -f 4 <<< ${config})
+	y_offset=${y_offset:-0}
+	rotate=$(cut -d ' ' -f 5 <<< ${config})
+	rotate=${rotate:-0}
+	gravity=$(cut -d ' ' -f 6 <<< ${config})
+	gravity=${gravity:-'Center'}
+
+	magick "${filepath}" \
+		-rotate "${rotate}" \
+		-gravity "${gravity}" \
+		-crop "16:9+${x_offset}+${y_offset}" \
+		-resize '1920x1080!' \
+		+repage "${outdir}/${target_file_name}"
+elif [[ $transform_type == 'fit' ]] then
 	x_offset=$(cut -d ' ' -f 3 <<< ${config})
 	x_offset=${x_offset:-0}
 	y_offset=$(cut -d ' ' -f 4 <<< ${config})
@@ -79,22 +96,6 @@ elif [[ $transform_type == 'fit2' ]] then
 			-resize '1920x1080' \
 		\) \
 		-composite -resize '1920x1080!' \
-		+repage "${outdir}/${target_file_name}"
-elif [[ $transform_type == 'crop' ]] then
-	x_offset=$(cut -d ' ' -f 3 <<< ${config})
-	x_offset=${x_offset:-0}
-	y_offset=$(cut -d ' ' -f 4 <<< ${config})
-	y_offset=${y_offset:-0}
-	rotate=$(cut -d ' ' -f 5 <<< ${config})
-	rotate=${rotate:-0}
-	gravity=$(cut -d ' ' -f 6 <<< ${config})
-	gravity=${gravity:-'Center'}
-
-	magick "${filepath}" \
-		-rotate "${rotate}" \
-		-gravity "${gravity}" \
-		-crop "16:9+${x_offset}+${y_offset}" \
-		-resize '1920x1080!' \
 		+repage "${outdir}/${target_file_name}"
 else
 	notify-send "Wallpaper - Unknown transform type" "${filepath}"
