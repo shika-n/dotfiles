@@ -6,7 +6,7 @@ base_folder="$HOME/Pictures/wallpapers/originals"
 cache_folder="$HOME/Pictures/wallpapers/.cache"
 folders=('base' 'extra' 'extra_plus')
 
-current_wallpaper=$(swww query | grep eDP-1 | cut -d ' ' -f 9)
+current_wallpaper=$(awww query | grep eDP-1 | cut -d ' ' -f 9)
 
 file_arg=$(cat $(dirname $0)/wallpaper_type 2>/dev/null)
 
@@ -46,6 +46,6 @@ wallpaper=$(${dirpath}/transform_wallpaper.sh \
 
 ln -sf "${wallpaper}" "${cache_folder}/current"
 
-swww img "${wallpaper}" --transition-type center --transition-duration 2
+awww img "${wallpaper}" --transition-type center --transition-duration 2
 
 echo $wallpaper
