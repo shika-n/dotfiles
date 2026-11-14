@@ -16,3 +16,5 @@ if vim.fn.has("win32") == 1 then
 		},
 	}
 end
+
+return {}

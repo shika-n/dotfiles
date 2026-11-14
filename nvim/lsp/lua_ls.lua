@@ -3,12 +3,16 @@ return {
 		Lua = {
 			workspace = {
 				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+					vim.fn.expand("$VIMRUNTIME/lua"),
+					vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+					"/usr/share/hypr/stubs",
 				},
 			},
 			diagnostics = {
-				globals = { "vim" },
+				globals = {
+					"hl",
+					"vim",
+				},
 			},
 		},
 	},
