@@ -10,7 +10,7 @@ function M.custom_keybinds(mainMod, programs)
 		mainMod .. " + CTRL + SHIFT + B",
 		hl.dsp.exec_cmd(configHome .. "/hypr/scripts/toggle_wallpaper_type.sh -r")
 	)
-	hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(configHome .. "/hypr/scripts/pause_wallpaper.sh"))
+	hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd(configHome .. "/hypr/scripts/pause_wallpaper.sh"))
 	hl.bind(mainMod .. " + CTRL + SHIFT + R", hl.dsp.exec_cmd(configHome .. "/hypr/scripts/random_wallpaper.sh true"))
 
 	-- Screen lock
